@@ -1,0 +1,13 @@
+index:
+    path: /
+    controller: App\Controller\AdminController::index
+
+accueil:
+  path: /admin
+  controller: FrameworkBundle:Redirect:redirect
+  defaults:
+    route: index
+    permanent: true
+
+deconnexion:
+  path: /deconnexion

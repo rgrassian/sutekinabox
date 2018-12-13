@@ -1,0 +1,25 @@
+{% extends "layout.html.twig" %}
+
+{% set active = 'produits' %}
+
+{% block title %}
+    Produits
+{% endblock %}
+
+{% block content %}
+
+    <h2>Produits référencés :</h2>
+
+    <ul class="list-group">
+        {% for produit in produits %}
+            <a href="{{ path('product_details', {'id':produit.id}) }}">
+                <li class="list-group-item">
+                    <span style="float: left; width: 30%; text-align: center;">{{ produit.nom }}</span>
+                    <span style="float: left; width: 30%; text-align: center;">{{ produit.prix }}€</span>
+                    <span style="float: left; width: 30%; text-align: center;">{{ produit.fournisseur.nom }}</span>--
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="{{ path('index') }}">SutekinaBox</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">  </a>
+            </li>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li class="nav-item {{ route == 'fournisseurs_list' ? 'active' :'' }}">
+                    <a class="nav-link" href="{{ path('fournisseurs_list') }}">Fournisseurs</a>
+                </li>
+                <li class="nav-item {{ route == 'products_list' ? 'active' :'' }}">
+                    <a class="nav-link" href="{{ path('products_list') }}" >Produits</a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item {{ route == 'membre_inscription' ? 'active' :'' }}">
+                    <a class="nav-link" href="{{ path('membre_inscription') }}" >Inscription de nouveaux utilisateurs</a>
+                </li>
+            {% endif %}
+        </ul>
+        <ul class="navbar-nav mr-auto" style="margin-right: 50px !important;">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#" >Bonjour {{ app.user.prenom ~' - Service '~ app.user.nom }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('security_deconnexion') }}" >Déconnexion</a>
+                </li>
+            {% endif %}
+        </ul>
+
+        <!--
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        -->
+
+    </div>
+</nav>

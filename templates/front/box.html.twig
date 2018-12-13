@@ -1,0 +1,17 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+    Box #{{ box.id }}
+{% endblock %}
+
+{% block content %}
+
+    <h2>Box #{{ box.id }}</h2>
+
+    <ul class="list-group">
+        {% for produit in produits %}
+         <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

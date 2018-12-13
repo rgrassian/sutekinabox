@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+{% endblock %}
+
+{% block body %}
+{{ render(controller('App\\Controller\\NavController::topnav')) }}
+    {% block content '' %}
+        
+{% endblock %}
+
+{% block javascripts %}
+    
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% set active = 'inscription' %}
+
+{% block page_title %}
+    Inscription
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <div class="form-group">
+        <h2 class="text-center">
+            Inscription d'un nouvel utilisateur
+        </h2>
+
+        <div class="text-center">
+            {{ form(form, {attr:{novalidate: 'novalidate'}}) }}
+        </div>
+    </div>
+{% endblock %}

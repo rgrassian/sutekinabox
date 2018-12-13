@@ -1,0 +1,37 @@
+{% extends "layout.html.twig" %}
+
+{% block page_title %}
+    Créer une box
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block final_javascripts %}
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div>
+        <h3>{{ route == 'new_box' ? 'Créer une box' : 'Editer la box #'}}{{ box.id }}</h3>
+        <div>
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            {{ form_row(form.produits) }}
+            {{ form_row(form.date) }}
+
+            {{ form_row(form.submit) }}
+            {{ form_end(form) }}
+
+            {#{{ form_start(form, {attr:{novalidate: 'novalidate' }}) }}
+            {{ form_widget(form.produits) }}
+            {{ form_end(form) }}#}
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+framework:
+    workflows:
+        sutekinabox:
+            marking_store:
+                type: 'single_state'
+                arguments:
+                    - state
+            supports: App\Entity\Produit
+            places:
+                - catalogue
+                - en_commande
+                - en_stock
+                - conforme
+                - non_conforme
+            transitions:
+                commande:
+                    from: catalogue
+                    to: en_commande
+                reception:
+                    from: en_commande
+                    to: en_stock
+                validation:
+                    from: en_stock
+                    to: conforme
+                refus:
+                    from: en_stock
+                    to: non_conforme
