@@ -10,16 +10,29 @@
 
     <h2>Produits référencés :</h2>
 
-    <ul class="list-group">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Description</th>
+            <th scope="col">Fournisseur</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for produit in produits %}
-            <a href="{{ path('product_details', {'id':produit.id}) }}">
-                <li class="list-group-item">
-                    <span style="float: left; width: 30%; text-align: center;">{{ produit.nom }}</span>
-                    <span style="float: left; width: 30%; text-align: center;">{{ produit.prix }}€</span>
-                    <span style="float: left; width: 30%; text-align: center;">{{ produit.fournisseur.nom }}</span>--
-                </li>
-            </a>
+            <tr>
+                <th scope="row">
+                    <a href="{{ path('product_details', {'id':produit.id}) }}">{{ produit.nom }}</a>
+                </th>
+                <td>{{ produit.prix }}€</td>
+                <td>{{ produit.description }}</td>
+                <td>
+                    <a href="{{ path('fournisseur_details', {'id':produit.fournisseur.id}) }}">{{ produit.fournisseur.nom }}</a>
+                </td>
+            </tr>
         {% endfor %}
-    </ul>
+        </tbody>
+    </table>
 
 {% endblock %}

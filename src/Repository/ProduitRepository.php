@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Box;
 use App\Entity\Produit;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -79,6 +80,16 @@ class ProduitRepository extends ServiceEntityRepository
             ->orderBy('p.nom', 'ASC')
             ->getQuery()
             ->getResult();
+    }
+    public function findByIdBoxOffsetLimitArray($idBox, $offset, $limit)
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.box', 'b')
+            ->where('b.id = :idBox')->setParameter('idBox', $idBox)
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getArrayResult();
     }
 
 }

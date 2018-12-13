@@ -11,9 +11,11 @@ namespace App\Controller;
 
 use App\Box\BoxType;
 use App\Entity\Box;
+use App\Entity\Produit;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class BoxController extends Controller
@@ -95,6 +97,9 @@ class BoxController extends Controller
             return $this->redirectToRoute('index');
         }
 
+        $catalogue = $this->getDoctrine()
+            ->getRepository(Produit::class)
+            ->findBy([],['nom' => 'ASC']);
 
         $route = $this->get('request_stack')->getMasterRequest()->attributes->get('_route');
 
@@ -102,7 +107,42 @@ class BoxController extends Controller
         return $this->render('box/form.html.twig', [
             'form' => $form->createView(),
             'route' => $route,
-            'box' => $box
+            'box' => $box,
+            'produits' => $box->getProduits(),
+            'catalogue' => $catalogue
         ]);
     }
+
+    /**
+     * API Json
+     * @Route("/api/box/{id}/products",
+     *     name="get_products_from_box")
+     */
+    public function getProduitsBox(Request $request, Box $box)
+    {
+
+        $products = $this->getDoctrine()
+            ->getRepository(Produit::class)
+            ->findByIdBoxOffsetLimitArray($box->getId(), 0, 10);
+
+        return new JsonResponse($products);
+    }
+
+
+    /**
+     * API Json
+     * @Route("/api/box/{id}/produit/remove",
+     *     name="remove_product_from_box")
+     */
+    public function removeProduitFromBox(Request $request)
+    {
+
+        //remove from database
+
+        return new JsonResponse([
+            'isDeleted' => true,
+        ]);
+    }
+
+
 }

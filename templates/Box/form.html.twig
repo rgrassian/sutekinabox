@@ -8,17 +8,94 @@
     {{ parent() }}
 {% endblock %}
 
-{% block final_javascripts %}
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var idBox = '{{ box.id }}';
 
+        var ajaxBoxProductList = function(){
+
+            $.ajax({
+                method: 'POST',
+                url: '{{ url('get_products_from_box', { id : box.id }) }}',
+                data: JSON.stringify({
+                    idBox: {{ box.id }}
+                })
+            })
+            .done(function(data) {
+                console.log(data);
+                for (var i = 0 ; i<data.length ; i++){
+                    addInBox(data[i])
+                }
+            })
+            .fail(function() {
+                console( "error" );
+            });
+
+        };
+
+        var ajaxRemoveProductFromBox = function(element, idBox, idProduit){
+
+            $.ajax({
+                method: 'POST',
+                url: '/api/box/' + idBox + '/produit/remove',
+                data: JSON.stringify({
+                    idBox: idBox,
+                    idProduit: idProduit
+                })
+            })
+            .done(function(data) {
+
+                console.log("response");
+                $(element).remove();
+
+            })
+            .fail(function() {
+                console( "error" );
+            });
+        };
+
+
+        var addInBox = function (produit)
+        {
+
+            var url = '/produit/' + produit.id;
+
+            var e = '<tr>' +
+                '<th class="id" scope="row">' + produit.id + '</th>' +
+                '<td><a href="' + url + '">' + produit.nom + '</a></td>' +
+                '<td>' + produit.prix + '€</td>' +
+                '<td>' + produit.description + '</td>' +
+                '<td><button onclick="removeProduit(this)" class="bg-primary text-white">Supprimer</button></td>' +
+                '</tr>';
+
+            $("#produits > tbody").append(e);
+
+        };
+        var removeProduit = function(event)
+        {
+            var idProduct = parseInt(event.parentElement.parentElement.querySelector('.id').textContent);
+            console.log(idProduct);
+            ajaxRemoveProductFromBox(event.parentElement.parentElement, idBox, idProduct);
+
+
+        };
+        $(document).ready(function()
+        {
+            ajaxBoxProductList();
+
+        });
+    </script>
 {% endblock %}
 
 
 {% block content %}
 
+    <!--
     <div>
-        <h3>{{ route == 'new_box' ? 'Créer une box' : 'Editer la box #'}}{{ box.id }}</h3>
+        <h3>{#{{ route == 'new_box' ? 'Créer une box' : 'Editer la box #'}}{{ box.id }}#}</h3>
         <div>
-            {{ form_start(form) }}
+            {#{{ form_start(form) }}
             {{ form_errors(form) }}
 
             {{ form_row(form.produits) }}
@@ -27,11 +104,36 @@
             {{ form_row(form.submit) }}
             {{ form_end(form) }}
 
-            {#{{ form_start(form, {attr:{novalidate: 'novalidate' }}) }}
+            {{ form_start(form, {attr:{novalidate: 'novalidate' }}) }}
             {{ form_widget(form.produits) }}
             {{ form_end(form) }}#}
 
         </div>
     </div>
+-->
+
+    <h3>Produits dans la box</h3>
+    <table id="produits" class="table">
+        <tbody>
+        </tbody>
+    </table>
+
+    <h3>Catalogue</h3>
+    <table class="table">
+        <tbody>
+        {% for produit in catalogue %}
+            <tr>
+                <th scope="row">
+                    <a href="{{ path('product_details', {'id':produit.id}) }}">{{ produit.nom }}</a>
+                </th>
+                <td>{{ produit.prix }}€</td>
+                <td>{{ produit.description }}</td>
+                <td>
+                    <a href="#">Ajouter</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock %}

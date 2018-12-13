@@ -44,6 +44,11 @@ class Produit
      */
     private $box;
 
+    /**
+     * @ORM\Column(type="string", length=500, nullable=true)
+     */
+    private $description;
+
     public function __construct()
     {
         $this->box = new ArrayCollection();
@@ -124,6 +129,18 @@ class Produit
         if ($this->box->contains($box)) {
             $this->box->removeElement($box);
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
