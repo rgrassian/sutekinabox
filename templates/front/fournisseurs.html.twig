@@ -8,12 +8,16 @@
 
 {% block content %}
 
-    <h2>Fournisseurs référencés :</h2>
+    <div style="width: 90%;margin: 20px auto;">
 
-    <ul class="list-group">
-        {% for fournisseur in fournisseurs %}
-            <a href="{{ path('fournisseur_details', {'id':fournisseur.id}) }}"><li class="list-group-item">{{ fournisseur.nom }}</li></a>
-        {% endfor %}
-    </ul>
+        <h2>Fournisseurs référencés :</h2>
+
+        <ul class="list-group">
+            {% for fournisseur in fournisseurs %}
+                <a href="{{ path('fournisseur_details', {'id':fournisseur.id}) }}"><li class="list-group-item">{{ fournisseur.nom }}</li></a>
+            {% endfor %}
+        </ul>
+
+    </div>
 
 {% endblock %}

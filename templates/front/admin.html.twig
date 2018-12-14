@@ -6,52 +6,64 @@
 
 {% block content %}
 
-    {% for message in app.flashes('notice') %}
-        <div class="alert alert-info">
-            {{ message }}
-        </div>
-    {% endfor %}
+    <div style="width: 90%;margin: 20px auto;">
 
-    {% if is_granted('ROLE_ACHAT') %}
-        {% if boxToEdit is empty %}
-            <h3>
-                <a href="{{ path('new_box') }}" >
-                    {% if is_granted('ROLE_ADMIN') %}Service Achat : {% endif %}Créer une nouvelle box
-                </a>
-            </h3>
-        {% else %}
-            <h3>
-                <a href="{{ path('edit_box', {'id':boxToEdit.id}) }}" >
-                    {% if is_granted('ROLE_ADMIN') %}Service Achat : {% endif %}Editer la box #{{ boxToEdit.id }}
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h3 style="margin-bottom: 20px;">
+            {% if is_granted('ROLE_ACHAT') %}
+                {% if boxToEdit is empty %}
+                    <a href="{{ path('new_box') }}" >
+                        {% if is_granted('ROLE_ADMIN') %}Service Achat : {% endif %}Créer une nouvelle box
+                    </a>
+                {% else %}
+                    <a href="{{ path('edit_box', {'id':boxToEdit.id}) }}" >
+                        {% if is_granted('ROLE_ADMIN') %}Service Achat : {% endif %}Editer la box #{{ boxToEdit.id }}
+                    </a>
+                {% endif %}
+        {% endif %}
+        </h3>
+
+        {% if is_granted('ROLE_LOGISTIQUE') %}
+            <h3 style="margin-bottom: 20px;">
+                <a href="{{ path('commandes') }}" >
+                    {% if is_granted('ROLE_ADMIN') %}Service Logistique : {% endif %}Gérer les livraisons
                 </a>
             </h3>
         {% endif %}
-    {% endif %}
 
-    {% if is_granted('ROLE_LOGISTIQUE') %}
-        <h3>
-            <a href="{{ path('commandes') }}" >
-                {% if is_granted('ROLE_ADMIN') %}Service Logistique : {% endif %}Gérer les livraisons
-            </a>
-        </h3>
-    {% endif %}
+        {% if is_granted('ROLE_QUALITE') %}
+            <h3 style="margin-bottom: 20px;">
+                <a href="{{ path('qualite') }}" >
+                    {% if is_granted('ROLE_ADMIN') %}Service Qualité : {% endif %}Gérer les conformités
+                </a>
+            </h3>
+        {% endif %}
 
-    {% if is_granted('ROLE_QUALITE') %}
-        <h3>
-            <a href="{{ path('qualite') }}" >
-                {% if is_granted('ROLE_ADMIN') %}Service Qualité : {% endif %}Gérer les conformités
-            </a>
-        </h3>
-    {% endif %}
+        <h3>Box archivées :</h3>
 
-    <h3>Box archivées :</h3>
-
-    <div class="list-group">
-        {% for box in boxList %}
-            <a href="{{ path('box_content', {'id': box.id}) }}" class="list-group-item list-group-item-action">Box #{{ box.id }} -
-                <span>{{ box.date|localizeddate('none', 'none', 'fr', null, 'MMMM Y') }}</span>
-            </a>
-        {% endfor %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Statut</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for box in boxList %}
+                    <tr>
+                        <th scope="row"><a href="{{ path('box_content', {'id': box.id}) }}">Box #{{ box.id }}</a></th>
+                        <td>{{ box.date|localizeddate('none', 'none', 'fr', null, 'MMMM Y') }}</td>
+                        <td>statut</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 
 {% endblock %}

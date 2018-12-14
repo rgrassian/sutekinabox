@@ -6,26 +6,28 @@
 
 {% block content %}
 
-    <h3>En attente de livraison</h3>
-        {% if produits_en_commande is not empty %}
-        <ul class="list-group">
-            {% for produit in produits_en_commande %}
-                <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
-            {% endfor %}
-        </ul>
-    {% else %}
-        Aucun produit n'est en attente de livraison.
-    {% endif %}
+    <div style="width: 90%;margin: 20px auto;">
+        <h3>En attente de livraison</h3>
+            {% if produits_en_commande is not empty %}
+            <ul class="list-group">
+                {% for produit in produits_en_commande %}
+                    <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            Aucun produit n'est en attente de livraison.
+        {% endif %}
 
-    <h3>En stock</h3>
-    {% if produits_en_stock is not empty %}
-        <ul class="list-group">
-            {% for produit in produits_en_stock %}
-                <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
-            {% endfor %}
-        </ul>
-    {% else %}
-        Aucun produit n'est en stock pour le moment.
-    {% endif %}
+        <h3>En stock</h3>
+        {% if produits_en_stock is not empty %}
+            <ul class="list-group">
+                {% for produit in produits_en_stock %}
+                    <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            Aucun produit n'est en stock pour le moment.
+        {% endif %}
+    </div>
 
 {% endblock %}

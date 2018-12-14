@@ -6,12 +6,15 @@
 
 {% block content %}
 
-    <h2>Box #{{ box.id }}</h2>
+    <div style="width: 90%;margin: 20px auto;">
 
-    <ul class="list-group">
-        {% for produit in produits %}
-         <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
-        {% endfor %}
-    </ul>
+        <h2>Box #{{ box.id }}</h2>
+
+        <ul class="list-group">
+            {% for produit in produits %}
+             <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
+            {% endfor %}
+        </ul>
+    </div>
 
 {% endblock %}

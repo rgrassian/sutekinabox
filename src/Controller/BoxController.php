@@ -118,9 +118,8 @@ class BoxController extends Controller
      * @Route("/api/box/{id}/products",
      *     name="get_products_from_box")
      */
-    public function getProduitsBox(Request $request, Box $box)
+    public function getProduitsFromBox(Request $request, Box $box)
     {
-
         $products = $this->getDoctrine()
             ->getRepository(Produit::class)
             ->findByIdBoxOffsetLimitArray($box->getId(), 0, 10);
@@ -128,21 +127,68 @@ class BoxController extends Controller
         return new JsonResponse($products);
     }
 
+    /**
+     * API Json
+     * @Route("/api/catalogue/products",
+     *     name="get_products_from_catalogue")
+     */
+    public function getProduitsFromCatalogue(Request $request)
+    {
+        $catalogue = $this->getDoctrine()
+            ->getRepository(Produit::class)
+            ->findProduitsInCatalogue();
+
+        return new JsonResponse($catalogue);
+    }
 
     /**
      * API Json
      * @Route("/api/box/{id}/produit/remove",
      *     name="remove_product_from_box")
      */
-    public function removeProduitFromBox(Request $request)
+    public function removeProduitFromBox(Request $request, Box $box)
     {
+        $produitId = json_decode($request->getContent(), true);
 
         //remove from database
+        $produitsRepository =  $this->getDoctrine()->getRepository(Produit::class);
+        $produit = $produitsRepository->findOneBy(['id'=>$produitId]);
+        $boxRepository = $this->getDoctrine()->getRepository(Box::class);
+        $box = $boxRepository->findOneBy(['id'=>$box->getId()]);
+        $box->removeProduit($produit);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($box);
+        $em->flush();
 
         return new JsonResponse([
-            'isDeleted' => true,
+            'isDeleted' => true
         ]);
     }
 
+    /**
+     * API Json
+     * @Route("/api/box/{id}/produit/add",
+     *     name="add_product_to_box")
+     */
+    public function addProduitToBox(Request $request, Box $box)
+    {
+        $produitId = json_decode($request->getContent(), true);
+
+        //remove from database
+        $produitsRepository =  $this->getDoctrine()->getRepository(Produit::class);
+        $produit = $produitsRepository->findOneBy(['id'=>$produitId]);
+        $boxRepository = $this->getDoctrine()->getRepository(Box::class);
+        $box = $boxRepository->findOneBy(['id'=>$box->getId()]);
+        $box->removeProduit($produit);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($box);
+        $em->flush();
+
+        return new JsonResponse([
+            'isDeleted' => true
+        ]);
+    }
 
 }

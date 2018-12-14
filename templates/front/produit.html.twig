@@ -8,6 +8,7 @@
 
 {% block content %}
 
+<div style="width: 90%;margin: 20px auto;">
     <h2>{{ produit.nom|title }}</h2>
 
     <ul class="list-group">
@@ -15,5 +16,6 @@
         <li class="list-group-item">Prix : {{ produit.prix }}€</li>
         <li class="list-group-item">Statut : </li>
     </ul>
+</div>
 
 {% endblock %}

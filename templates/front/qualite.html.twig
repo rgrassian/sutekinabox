@@ -6,37 +6,41 @@
 
 {% block content %}
 
-    <h3>En stock</h3>
-    {% if produits_en_stock is not empty %}
-    <ul class="list-group">
-        {% for produit in produits_en_stock %}
-            <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
-        {% endfor %}
-    </ul>
-    {% else %}
-        Aucun produit n'est en stock pour le moment.
-    {% endif %}
+    <div style="width: 90%;margin: 20px auto;">
 
-    <h3>Conformes</h3>
-    {% if produits_conformes is not empty %}
+        <h3>En stock</h3>
+        {% if produits_en_stock is not empty %}
         <ul class="list-group">
-            {% for produit in produits_conformes %}
+            {% for produit in produits_en_stock %}
                 <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
             {% endfor %}
         </ul>
-    {% else %}
-        Aucun produit conforme pour le moment.
-    {% endif %}
+        {% else %}
+            Aucun produit n'est en stock pour le moment.
+        {% endif %}
 
-    <h3>Non conformes</h3>
-    {% if produits_non_conformes is not empty %}
-        <ul class="list-group alert-danger">
-            {% for produit in produits_non_conformes %}
-                <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item alert-danger">{{ produit.nom }}</li></a>
-            {% endfor %}
-        </ul>
-    {% else %}
-        Aucun produit non conforme pour le moment.
-    {% endif %}
+        <h3>Conformes</h3>
+        {% if produits_conformes is not empty %}
+            <ul class="list-group">
+                {% for produit in produits_conformes %}
+                    <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            Aucun produit conforme pour le moment.
+        {% endif %}
+
+        <h3>Non conformes</h3>
+        {% if produits_non_conformes is not empty %}
+            <ul class="list-group alert-danger">
+                {% for produit in produits_non_conformes %}
+                    <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item alert-danger">{{ produit.nom }}</li></a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            Aucun produit non conforme pour le moment.
+        {% endif %}
+
+    </div>
 
 {% endblock %}

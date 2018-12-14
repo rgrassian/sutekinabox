@@ -8,16 +8,18 @@
 
 {% block content %}
 
-    <h2>{{ fournisseur.nom|title }}</h2>
+    <div style="width: 90%;margin: 20px auto;">
+        <h2>{{ fournisseur.nom|title }}</h2>
 
-    {% if produits is not empty %}
-        <ul class="list-group">
-            {% for produit in produits %}
-                <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
-            {% endfor %}
-        </ul>
-    {% else %}
-        Pas de produits actuellement référencés pour ce fournisseur
-    {% endif %}
+        {% if produits is not empty %}
+            <ul class="list-group">
+                {% for produit in produits %}
+                    <a href="{{ path('product_details', {'id':produit.id}) }}"><li class="list-group-item">{{ produit.nom }}</li></a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            Pas de produits actuellement référencés pour ce fournisseur
+        {% endif %}
+    </div>
 
 {% endblock %}

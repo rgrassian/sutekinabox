@@ -81,6 +81,7 @@ class ProduitRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
     public function findByIdBoxOffsetLimitArray($idBox, $offset, $limit)
     {
         return $this->createQueryBuilder('p')
@@ -92,4 +93,10 @@ class ProduitRepository extends ServiceEntityRepository
             ->getArrayResult();
     }
 
+    public function findProduitsInCatalogue()
+    {
+        return $this->createQueryBuilder('p')
+            ->getQuery()
+            ->getArrayResult();
+    }
 }
