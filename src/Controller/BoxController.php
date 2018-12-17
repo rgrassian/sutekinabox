@@ -156,6 +156,7 @@ class BoxController extends Controller
         $boxRepository = $this->getDoctrine()->getRepository(Box::class);
         $box = $boxRepository->findOneBy(['id'=>$box->getId()]);
         $box->removeProduit($produit);
+        $produit->setStatut('catalogue');
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($box);
@@ -180,7 +181,8 @@ class BoxController extends Controller
         $produit = $produitsRepository->findOneBy(['id'=>$produitId]);
         $boxRepository = $this->getDoctrine()->getRepository(Box::class);
         $box = $boxRepository->findOneBy(['id'=>$box->getId()]);
-        $box->removeProduit($produit);
+        $box->addProduit($produit);
+        $produit->setStatut('en commande');
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($box);

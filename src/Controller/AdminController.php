@@ -19,6 +19,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends Controller
 {
+    /**
+     * @Route("/",name="index_admin")
+     */
     public function index()
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');

@@ -114,7 +114,8 @@
                 '<th class="id" scope="row">#' + produit.id + '</th>' +
                 '<td><a href="' + url + '">' + produit.nom + '</a></td>' +
                 '<td>' + produit.prix + '€</td>' +
-                '<td>' + produit.description + '</td>' +
+                '<td style="width: 12%;">' + produit.statut + '</td>' +
+                '<td style="width: 58%;">' + produit.description + '</td>' +
                 '<td style="width: 12%;text-align: center;"><button onclick="removeProduit(this)" class="btn btn-primary">Supprimer</button></td>' +
                 '</tr>';
             $("#produitsbox > tbody").append(e);
@@ -127,12 +128,12 @@
                 '<th class="id" id="' + produit.id + '" scope="row">#' + produit.id + '</th>' +
                 '<td><a href="' + url + '">' + produit.nom + '</a></td>' +
                 '<td>' + produit.prix + '€</td>' +
-                '<td>' + produit.description + '</td>' +
+                '<td style="width: 12%;">' + produit.statut + '</td>' +
+                '<td style="width: 58%;">' + produit.description + '</td>' +
                 '<td style="width: 12%;text-align: center;"><button onclick="addProduit(this);this.disabled=true;" class="btn btn-primary">Ajouter</button></td>' +
                 '</tr>';
             $("#produitscatalogue > tbody").append(e);
         };
-
 
 
         $(document).ready(function()

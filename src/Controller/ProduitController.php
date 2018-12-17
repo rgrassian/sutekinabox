@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Workflow\Registry;
 
 /**
  * @Route("/produit")
@@ -132,5 +133,13 @@ class ProduitController extends AbstractController
         }
 
         return $this->redirectToRoute('produit_index');
+    }
+
+    /**
+     * gère le workflow
+     */
+    public function workflow($statut, Produit $produit, Registry $registry, Request $request)
+    {
+
     }
 }

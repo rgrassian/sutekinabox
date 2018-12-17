@@ -23,11 +23,17 @@ class MembreLoginType extends AbstractType
         $builder
             ->add('email', EmailType::class, [
                 'label' => false,
-                'attr' => ['placeholder' => 'Email']
+                'attr' => [
+                    'placeholder' => 'Email',
+                    'style' => 'min-width: 250px;margin-bottom: 5px;'
+                ]
             ])
             ->add('password', PasswordType::class, [
                 'label' => false,
-                'attr' => ['placeholder' => 'Mot de passe']
+                'attr' => [
+                    'placeholder' => 'Mot de passe',
+                    'style' => 'min-width: 250px;margin-bottom: 5px;'
+                ]
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'connexion'
