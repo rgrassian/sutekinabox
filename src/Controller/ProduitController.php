@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Box;
 use App\Entity\Produit;
 use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
@@ -26,15 +27,19 @@ class ProduitController extends AbstractController
     {
         $this->denyAccessUnlessGranted('ROLE_LOGISTIQUE');
 
-        $repository = $this->getDoctrine()
-            ->getRepository(Produit::class);
+        $boxRepository = $this->getDoctrine()
+            ->getRepository(Box::class);
+        $box = $boxRepository->findOneBy(['statut'=>'en cours']);
 
-        $produitsEnCommande = $repository->findByStatut('en commande');
-        $produitsEnStock = $repository->findByStatut('en stock');
+        $produitRepository = $this->getDoctrine()
+            ->getRepository(Produit::class);
+        $produitsEnCommande = $produitRepository->findByStatut('en commande');
+        $produitsEnStock = $produitRepository->findByStatut('en stock');
 
         return $this->render('front/commandes.html.twig', [
             'produits_en_commande' => $produitsEnCommande,
-            'produits_en_stock' => $produitsEnStock
+            'produits_en_stock' => $produitsEnStock,
+            'box' => $box
         ]);
     }
 
@@ -142,4 +147,20 @@ class ProduitController extends AbstractController
     {
 
     }
+
+    /**
+     * API Json
+     * @Route("/api/commande/products",
+     *     name="get_products_commande")
+     */
+    public function getProduitsFromCatalogue(Request $request)
+    {
+        $produitsEnCommande = $this->getDoctrine()
+            ->getRepository(Produit::class)
+            ->findProduitsEnCommande();
+
+        return new JsonResponse($produitsEnCommande);
+    }
+
+
 }

@@ -24,33 +24,38 @@ class MembreType extends AbstractType
     {
         $builder
             ->add('prenom', TextType::class, [
-                'label' => 'Prénom',
+                'label' => false,
                 'attr' => [
-                    'placeholder' => 'Saisissez le prénom'
+                    'placeholder' => 'Prénom',
+                    'style' => 'min-width: 250px;margin-bottom: 5px;'
                 ]
             ])
             ->add('nom', TextType::class, [
-                'label' => 'Nom',
+                'label' => false,
                 'attr' => [
-                    'placeholder' => 'Saisissez le nom'
+                    'placeholder' => 'Nom',
+                    'style' => 'min-width: 250px;margin-bottom: 5px;'
                 ]
             ])
             ->add('roles', TextType::class, [
-                'label' => 'Role',
+                'label' => false,
                 'attr' => [
-                    'placeholder' => 'Saisissez le role'
+                    'placeholder' => 'Role',
+                    'style' => 'min-width: 250px;margin-bottom: 5px;'
                 ]
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email',
+                'label' => false,
                 'attr' => [
-                    'placeholder' => 'Saisissez l\'email'
+                    'placeholder' => 'Email',
+                    'style' => 'min-width: 250px;margin-bottom: 5px;'
                 ]
             ])
             ->add('password', PasswordType::class, [
-                'label' => 'Mot de passe',
+                'label' => false,
                 'attr' => [
-                    'placeholder' => 'Saisissez le mot de passe'
+                    'placeholder' => 'Mot de passe',
+                    'style' => 'min-width: 250px;margin-bottom: 5px;'
                 ]
             ])
             ->add('submit', SubmitType::class, [

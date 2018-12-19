@@ -9,17 +9,41 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">  </a>
             </li>
+            {% if is_granted('ROLE_ACHAT') %}
+                {% if boxToEdit is empty %}
+                    <li class="nav-item {{ route == 'new_box' ? 'active' :'' }}">
+                        <a class="nav-link" href="{{ path('new_box') }}" >Nouvelle box</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item {{ route == 'edit_box' ? 'active' :'' }}">
+                        <a class="nav-link" href="{{ path('edit_box', {'id':boxToEdit.id}) }}" >Editer la box #{{ boxToEdit.id }}</a>
+                    </li>
+                {% endif %}
+            {% endif %}
+
+            {% if is_granted('ROLE_LOGISTIQUE') %}
+                <li class="nav-item {{ route == 'commandes' ? 'active' :'' }}">
+                    <a class="nav-link" href="{{ path('commandes') }}" >Logistique</a>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_QUALITE') %}
+                <li class="nav-item {{ route == 'qualite' ? 'active' :'' }}">
+                    <a class="nav-link" href="{{ path('qualite') }}" >Qualité</a>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item {{ route == 'membre_inscription' ? 'active' :'' }}">
+                    <a class="nav-link" href="{{ path('membre_inscription') }}" >Nouveaux utilisateurs</a>
+                </li>
+            {% endif %}
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li class="nav-item {{ route == 'fournisseurs_list' ? 'active' :'' }}">
                     <a class="nav-link" href="{{ path('fournisseurs_list') }}">Fournisseurs</a>
                 </li>
                 <li class="nav-item {{ route == 'products_list' ? 'active' :'' }}">
                     <a class="nav-link" href="{{ path('products_list') }}" >Produits</a>
-                </li>
-            {% endif %}
-            {% if is_granted('ROLE_ADMIN') %}
-                <li class="nav-item {{ route == 'membre_inscription' ? 'active' :'' }}">
-                    <a class="nav-link" href="{{ path('membre_inscription') }}" >Inscription de nouveaux utilisateurs</a>
                 </li>
             {% endif %}
         </ul>

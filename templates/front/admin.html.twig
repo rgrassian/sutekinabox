@@ -14,8 +14,8 @@
             </div>
         {% endfor %}
 
-        <h3 style="margin-bottom: 20px;">
-            {% if is_granted('ROLE_ACHAT') %}
+        {% if is_granted('ROLE_ACHAT') %}
+            <h3 style="margin-bottom: 20px;">
                 {% if boxToEdit is empty %}
                     <a href="{{ path('new_box') }}" >
                         {% if is_granted('ROLE_ADMIN') %}Service Achat : {% endif %}Créer une nouvelle box
@@ -25,8 +25,8 @@
                         {% if is_granted('ROLE_ADMIN') %}Service Achat : {% endif %}Editer la box #{{ boxToEdit.id }}
                     </a>
                 {% endif %}
+            </h3>
         {% endif %}
-        </h3>
 
         {% if is_granted('ROLE_LOGISTIQUE') %}
             <h3 style="margin-bottom: 20px;">
@@ -43,6 +43,15 @@
                 </a>
             </h3>
         {% endif %}
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <h3 style="margin-bottom: 20px;">
+                <a href="{{ path('membre_inscription') }}" >
+                    Service Admin : Nouveaux utilisateurs
+                </a>
+            </h3>
+        {% endif %}
+
 
         <h3>Box archivées :</h3>
 

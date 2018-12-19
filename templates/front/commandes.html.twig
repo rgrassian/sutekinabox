@@ -4,10 +4,160 @@
     Commandes
 {% endblock %}
 
+{% block javascripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    var idBox = '{{ box.id }}';
+
+    var ajaxBoxProductsList = function(){
+        $.ajax({
+            method: 'POST',
+            url: '{{ url('get_products_from_box', { id : box.id }) }}',
+            data: JSON.stringify({
+                idBox: {{ box.id }}
+            })
+        })
+            .done(function(data) {
+                //console.log(data);
+                for (var i = 0 ; i<data.length ; i++){
+                    addInBox(data[i])
+                }
+            })
+            .fail(function() {
+                console( "error" );
+            });
+    };
+
+    var ajaxCommandeProductsList = function(){
+        $.ajax({
+            method: 'POST',
+            url: '{{ url('get_products_commande') }}',
+            data: JSON.stringify()
+        })
+            .done(function(data) {
+                //console.log(data);
+                for (var i = 0 ; i<data.length ; i++){
+                    addInCommande(data[i])
+                }
+            })
+            .fail(function() {
+                console( "error" );
+            });
+    };
+
+    var ajaxRemoveProductFromBox = function(element, idBox, idProduit){
+        $.ajax({
+            method: 'POST',
+            url: '/api/box/' + idBox + '/produit/remove',
+            data: JSON.stringify({
+                idBox: idBox,
+                idProduit: idProduit
+            })
+        })
+            .done(function(data) {
+                //console.log(data);
+                $(element).remove();
+                var elementToUpdate = document.getElementById(idProduit).parentElement.lastChild.firstChild;
+                elementToUpdate.disabled = false;
+                console.log(elementToUpdate);
+            })
+            .fail(function() {
+                console( "error" );
+            });
+    };
+
+    var removeProduit = function(event)
+    {
+        var idProduct = parseInt(event.parentElement.parentElement.querySelector('.id').textContent.slice(1));
+        console.log(event.parentElement.parentElement.querySelector('.id').textContent.slice(1));
+        ajaxRemoveProductFromBox(event.parentElement.parentElement, idBox, idProduct);
+    };
+
+    var ajaxAddProductToBox = function(element, idBox, idProduit){
+        $.ajax({
+            method: 'POST',
+            url: '/api/box/' + idBox + '/produit/add',
+            data: JSON.stringify({
+                idBox: idBox,
+                idProduit: idProduit
+            })
+        })
+            .done(function(data) {
+                console.log("response");
+                var elementNew = element.cloneNode(true);
+                elementNew.lastChild.firstChild.textContent = "Supprimer";
+                elementNew.lastChild.firstChild.setAttribute('onclick',"removeProduit(this);");
+                elementNew.lastChild.firstChild.disabled = false;
+
+                $("#produitsbox > tbody").append(elementNew);
+            })
+            .fail(function() {
+                console( "error" );
+            });
+    };
+
+    var addProduit = function(event)
+    {
+        var idProduct = parseInt(event.parentElement.parentElement.querySelector('.id').textContent.slice(1));
+        console.log(event.parentElement.parentElement.querySelector('.id').textContent.slice(1));
+        ajaxAddProductToBox(event.parentElement.parentElement, idBox, idProduct);
+    };
+
+    var addInCommande = function (produit)
+    {
+        var url = '/produit/' + produit.id;
+        var e = '<tr>' +
+            '<th class="id" scope="row">#' + produit.id + '</th>' +
+            '<td><a href="' + url + '">' + produit.nom + '</a></td>' +
+            '<td>' + produit.prix + '€</td>' +
+            '<td style="width: 12%;">' + produit.statut + '</td>' +
+            '<td style="width: 58%;">' + produit.description + '</td>' +
+            '<td style="width: 12%;text-align: center;"><button onclick="removeProduit(this)" class="btn btn-primary">En stock</button></td>' +
+            '</tr>';
+        $("#produitscommande > tbody").append(e);
+    };
+
+    var addInCatalogue = function (produit)
+    {
+        var url = '/produit/' + produit.id;
+        var e = '<tr>' +
+            '<th class="id" id="' + produit.id + '" scope="row">#' + produit.id + '</th>' +
+            '<td><a href="' + url + '">' + produit.nom + '</a></td>' +
+            '<td>' + produit.prix + '€</td>' +
+            '<td style="width: 12%;">' + produit.statut + '</td>' +
+            '<td style="width: 58%;">' + produit.description + '</td>' +
+            '<td style="width: 12%;text-align: center;"><button onclick="addProduit(this);this.disabled=true;" class="btn btn-primary">Ajouter</button></td>' +
+            '</tr>';
+        $("#produitscatalogue > tbody").append(e);
+    };
+
+
+    $(document).ready(function()
+    {
+        ajaxBoxProductsList();
+        ajaxCommandeProductsList();
+    });
+</script>
+{% endblock %}
+
 {% block content %}
 
     <div style="width: 90%;margin: 20px auto;">
-        <h3>En attente de livraison</h3>
+        <h4>En cours de livraison</h4>
+        <table id="produitscommande" class="table">
+            <tbody>
+            </tbody>
+        </table>
+
+        <h4>En stock</h4>
+        <table id="produitsstock" class="table">
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="width: 90%;margin: 20px auto;">
+        <h3>En cours de livraison</h3>
             {% if produits_en_commande is not empty %}
             <ul class="list-group">
                 {% for produit in produits_en_commande %}

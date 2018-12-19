@@ -57,7 +57,7 @@ class ProduitRepository extends ServiceEntityRepository
             ->setParameter('en_cours', 'en commande')
             ->orderBy('p.nom', 'ASC')
             ->getQuery()
-            ->getResult();
+            ->getArrayResult();
     }
 
     // récupère les produits conformes
