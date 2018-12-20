@@ -2,39 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a868a90-9f98-4986-a6e0-3917dfbf34d3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SutekinaBox.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SutekinaBox.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/workflow.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/workflow.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Box/BoxType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Box/BoxType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BoxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BoxController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/NavController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/NavController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProduitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProduitController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Security/MembreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Security/MembreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Box.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Box.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Produit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Membre/MembreLoginType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Membre/MembreLoginType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Membre/MembreType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Membre/MembreType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BoxRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BoxRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Box/form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Box/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/component/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/component/_nav.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/admin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/admin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/box.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/box.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/front/commandes.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/commandes.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/fournisseur.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/fournisseur.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/fournisseurs.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/fournisseurs.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/produit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/produit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/produits.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/produits.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/membre/inscription.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/membre/inscription.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../moijv_bugged/src/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../moijv_bugged/src/Controller/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../techNews/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../techNews/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../techNews/.idea/techNews.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../techNews/.idea/techNews.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../techNews/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../techNews/.idea/workspace.xml" afterDir="false" />
@@ -66,13 +38,15 @@
     <session id="-377911379">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.0" value="3" />
-          <entry key="project.open.time.1" value="4" />
+          <entry key="project.open.time.1" value="5" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -86,7 +60,7 @@
           <entry key="html" value="2" />
           <entry key="json" value="4" />
           <entry key="php" value="99" />
-          <entry key="twig" value="94" />
+          <entry key="twig" value="95" />
           <entry key="yaml" value="14" />
         </counts>
       </usages-collector>
@@ -96,7 +70,7 @@
           <entry key="JSON" value="4" />
           <entry key="PHP" value="99" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Twig" value="94" />
+          <entry key="Twig" value="95" />
           <entry key="YAML" value="14" />
         </counts>
       </usages-collector>
@@ -105,17 +79,17 @@
           <entry key="dummy" value="9" />
           <entry key="env" value="11" />
           <entry key="json" value="1" />
-          <entry key="php" value="5021" />
-          <entry key="twig" value="4778" />
+          <entry key="php" value="5151" />
+          <entry key="twig" value="5102" />
           <entry key="yaml" value="505" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="1" />
-          <entry key="PHP" value="5021" />
+          <entry key="PHP" value="5151" />
           <entry key="PLAIN_TEXT" value="20" />
-          <entry key="Twig" value="4778" />
+          <entry key="Twig" value="5102" />
           <entry key="YAML" value="505" />
         </counts>
       </usages-collector>
@@ -131,8 +105,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/BoxController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="142" selection-start-line="129" selection-end-line="142" />
+            <state relative-caret-position="349">
+              <caret line="143" column="7" selection-start-line="143" selection-start-column="7" selection-end-line="143" selection-end-column="7" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
                 <element signature="e#120#140#0#PHP" expanded="true" />
@@ -142,23 +116,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="e#6#90#0#PHP" expanded="true" />
-                <element signature="e#120#139#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ProduitController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="621">
-              <caret line="159" column="22" selection-start-line="159" selection-start-column="22" selection-end-line="159" selection-end-column="22" />
+            <state relative-caret-position="570">
+              <caret line="191" column="49" selection-start-line="191" selection-start-column="49" selection-end-line="191" selection-end-column="49" />
               <folding>
                 <element signature="e#34#53#0#PHP" expanded="true" />
               </folding>
@@ -169,8 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Repository/ProduitRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="464">
+              <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
               <folding>
                 <element signature="e#34#53#0#PHP" expanded="true" />
               </folding>
@@ -179,40 +140,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/membre/inscription.html.twig">
+        <entry file="file://$PROJECT_DIR$/templates/front/commandes.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+            <state relative-caret-position="714">
+              <caret line="90" selection-start-line="89" selection-end-line="90" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/front/commandes.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
-              <folding>
-                <element signature="e#900#921#0#Twig" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/Box/form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="689">
-              <caret line="158" selection-start-line="158" selection-end-line="158" />
+            <state relative-caret-position="519">
+              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
               <folding>
                 <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
@@ -237,6 +184,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>ne</find>
+      <find>ajaxadd</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -274,7 +222,6 @@
         <option value="$PROJECT_DIR$/templates/front/fournisseur.html.twig" />
         <option value="$PROJECT_DIR$/templates/front/produit.html.twig" />
         <option value="$PROJECT_DIR$/templates/front/qualite.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/BoxController.php" />
         <option value="$PROJECT_DIR$/src/Membre/MembreLoginType.php" />
         <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/src/Controller/NavController.php" />
@@ -282,10 +229,11 @@
         <option value="$PROJECT_DIR$/templates/membre/inscription.html.twig" />
         <option value="$PROJECT_DIR$/templates/component/_nav.html.twig" />
         <option value="$PROJECT_DIR$/templates/front/admin.html.twig" />
-        <option value="$PROJECT_DIR$/templates/Box/form.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/ProduitController.php" />
         <option value="$PROJECT_DIR$/src/Repository/ProduitRepository.php" />
+        <option value="$PROJECT_DIR$/src/Controller/ProduitController.php" />
         <option value="$PROJECT_DIR$/templates/front/commandes.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/BoxController.php" />
+        <option value="$PROJECT_DIR$/templates/Box/form.html.twig" />
       </list>
     </option>
   </component>
@@ -374,7 +322,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/validator" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="285" />
     <option name="width" value="1641" />
     <option name="height" value="1047" />
@@ -388,6 +336,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -409,19 +358,18 @@
             <path>
               <item name="SutekinaBox" type="b2602c69:ProjectViewProjectNode" />
               <item name="SutekinaBox" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Membre" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SutekinaBox" type="b2602c69:ProjectViewProjectNode" />
               <item name="SutekinaBox" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -473,17 +421,21 @@
       <workItem from="1545055486404" duration="2090000" />
       <workItem from="1545061164081" duration="1099000" />
       <workItem from="1545218175225" duration="6012000" />
+      <workItem from="1545232747815" duration="1263000" />
+      <workItem from="1545234382686" duration="44000" />
+      <workItem from="1545234449885" duration="3221000" />
+      <workItem from="1545294506309" duration="5079000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154460000" />
+    <option name="totallyTimeSpent" value="164067000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="285" y="0" width="1641" height="1047" extended-state="1" />
+    <frame x="285" y="0" width="1641" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21315622" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2232764" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -705,9 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-          <folding>
-            <element signature="e#34#53#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -729,9 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" selection-start-line="8" selection-end-line="9" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -739,12 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="40" selection-start-line="35" selection-end-line="40" />
-          <folding>
-            <element signature="e#833#840#0#Twig" expanded="true" />
-            <element signature="e#1046#1054#0#Twig" expanded="true" />
-            <element signature="e#1421#1430#0#Twig" expanded="true" />
-            <element signature="e#1729#1736#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -752,17 +692,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#h3#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/membre/inscription.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
+        <state relative-caret-position="272">
           <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
@@ -771,10 +713,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/ProduitRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
+          <folding>
+            <element signature="e#34#53#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProduitController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="191" column="49" selection-start-line="191" selection-start-column="49" selection-end-line="191" selection-end-column="49" />
+          <folding>
+            <element signature="e#34#53#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/BoxController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="142" selection-start-line="129" selection-end-line="142" />
+        <state relative-caret-position="349">
+          <caret line="143" column="7" selection-start-line="143" selection-start-column="7" selection-end-line="143" selection-end-column="7" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
             <element signature="e#120#140#0#PHP" expanded="true" />
@@ -782,57 +744,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/membre/inscription.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/front/commandes.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        <state relative-caret-position="714">
+          <caret line="90" selection-start-line="89" selection-end-line="90" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/Box/form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="158" selection-start-line="158" selection-end-line="158" />
+        <state relative-caret-position="519">
+          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
           <folding>
-            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ProduitController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="159" column="22" selection-start-line="159" selection-start-column="22" selection-end-line="159" selection-end-column="22" />
-          <folding>
-            <element signature="e#34#53#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/ProduitRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-          <folding>
-            <element signature="e#34#53#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/front/commandes.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="132" lean-forward="true" selection-start-line="132" selection-end-line="132" />
-          <folding>
-            <element signature="e#900#921#0#Twig" expanded="true" />
             <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#4;n#tr#0;n#!!top" expanded="true" />

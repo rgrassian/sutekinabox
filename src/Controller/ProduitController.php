@@ -162,5 +162,40 @@ class ProduitController extends AbstractController
         return new JsonResponse($produitsEnCommande);
     }
 
+    /**
+     * API Json
+     * @Route("/api/stock/products",
+     *     name="get_products_in_stock")
+     */
+    public function getProduitsInStock(Request $request)
+    {
+        $produitsEnCommande = $this->getDoctrine()
+            ->getRepository(Produit::class)
+            ->findProduitsEnStock();
+
+        return new JsonResponse($produitsEnCommande);
+    }
+
+    /**
+     * API Json
+     * @Route("/api/stock/{id}",
+     *     name="put_product_to_stock")
+     */
+    public function addProduitInStock(Request $request)
+    {
+        $produitId = json_decode($request->getContent(), true);
+
+        $produitsRepository =  $this->getDoctrine()->getRepository(Produit::class);
+        $produit = $produitsRepository->findOneBy(['id'=>$produitId]);
+        $produit->setStatut('en stock');
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($produit);
+        $em->flush();
+
+        return new JsonResponse([
+            'isInStock' => true
+        ]);
+    }
 
 }

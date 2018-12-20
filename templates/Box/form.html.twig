@@ -59,11 +59,11 @@
                 })
             })
             .done(function(data) {
-                //console.log(data);
+                console.log(data);
                 $(element).remove();
-                var elementToUpdate = document.getElementById(idProduit).parentElement.lastChild.firstChild;
-                elementToUpdate.disabled = false;
-                console.log(elementToUpdate);
+                var elementToUpdate = document.getElementById(idProduit).parentElement;
+                elementToUpdate.lastChild.firstChild.disabled = false;
+                elementToUpdate.childNodes[3].textContent = 'catalogue';
             })
             .fail(function() {
                 console( "error" );
@@ -86,18 +86,19 @@
                     idProduit: idProduit
                 })
             })
-                .done(function(data) {
-                    console.log("response");
-                    var elementNew = element.cloneNode(true);
-                    elementNew.lastChild.firstChild.textContent = "Supprimer";
-                    elementNew.lastChild.firstChild.setAttribute('onclick',"removeProduit(this);");
-                    elementNew.lastChild.firstChild.disabled = false;
+            .done(function(data) {
+                console.log("response");
+                element.childNodes[3].textContent = "en commande";
+                var elementNew = element.cloneNode(true);
+                elementNew.lastChild.firstChild.textContent = "Supprimer";
+                elementNew.lastChild.firstChild.setAttribute('onclick',"removeProduit(this);");
+                elementNew.lastChild.firstChild.disabled = false;
 
-                    $("#produitsbox > tbody").append(elementNew);
-                })
-                .fail(function() {
-                    console( "error" );
-                });
+                $("#produitsbox > tbody").append(elementNew);
+            })
+            .fail(function() {
+                console( "error" );
+            });
         };
 
         var addProduit = function(event)

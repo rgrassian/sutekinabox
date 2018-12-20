@@ -53,8 +53,19 @@ class ProduitRepository extends ServiceEntityRepository
     public function findProduitsEnCommande()
     {
         return $this->createQueryBuilder('p')
-            ->where('p.statut = :en_cours')
-            ->setParameter('en_cours', 'en commande')
+            ->where('p.statut = :statut')
+            ->setParameter('statut', 'en commande')
+            ->orderBy('p.nom', 'ASC')
+            ->getQuery()
+            ->getArrayResult();
+    }
+
+    // récupère les produits en stock
+    public function findProduitsEnStock()
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.statut = :statut')
+            ->setParameter('statut', 'en stock')
             ->orderBy('p.nom', 'ASC')
             ->getQuery()
             ->getArrayResult();
