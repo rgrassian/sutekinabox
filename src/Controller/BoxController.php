@@ -146,15 +146,20 @@ class BoxController extends Controller
      * @Route("/api/box/{id}/produit/remove",
      *     name="remove_product_from_box")
      */
-    public function removeProduitFromBox(Request $request, Box $box)
+    public function removeProduitFromBox(Request $request, $id)
     {
-        $produitId = json_decode($request->getContent(), true);
+        $data = json_decode($request->getContent());
+
+        $boxRepository = $this->getDoctrine()->getRepository(Box::class);
+        $box = $boxRepository->findOneBy(['id' => $data->idBox]);
+
+        $produitsRepository =  $this->getDoctrine()->getRepository(Produit::class);
+        $produit = $produitsRepository->findOneBy(['id'=>$data->idProduit]);
+
+        //dd($box);
 
         //remove from database
-        $produitsRepository =  $this->getDoctrine()->getRepository(Produit::class);
-        $produit = $produitsRepository->findOneBy(['id'=>$produitId]);
-        $boxRepository = $this->getDoctrine()->getRepository(Box::class);
-        $box = $boxRepository->findOneBy(['id'=>$box->getId()]);
+
         $box->removeProduit($produit);
         $produit->setStatut('catalogue');
 
